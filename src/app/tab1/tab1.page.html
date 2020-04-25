@@ -1,17 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Liste des fruits
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+<br>
+<div class="size">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ul class="list-group ">
+    <li class="mt-2 mx-5 px-2 list-group-item-secondary  
+    d-flex justify-content-between align-items-center"
+      *ngFor="let fruit of fruitService.fruits;">
+      {{fruit.nom | titlecase}} : {{fruit.poids}} kg
+      <button (click)="fruitService.deleteFruit(fruit);" 
+      class="btn btn-sm btn-outline-danger m-1">x</button>
+    </li>
+  </ul>
+  
+</div>
 </ion-content>
