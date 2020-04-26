@@ -11,7 +11,7 @@
       
     <div class="mt-5 mx-5">
       <select #optLetter class="form-control">
-        <option>Par lettre :</option>
+        <option>Filtrer par lettre :</option>
         <option>A..F</option>
         <option>G..L</option>
         <option>M..S</option>
@@ -19,17 +19,25 @@
       </select>
     </div>
     <div class="mt-2 mx-5">
-      <select class="form-control">
-        <option>Par poids :</option>
+      <select #optWeight class="form-control">
+        <option>Filtrer par poids :</option>
         <option>inférieur à 2 kg</option>
         <option>entre 2 et 5 kg</option>
         <option>entre 5 et 10 kg</option>
         <option>plus de 10 kg...</option>
       </select>
     </div>
+    <div class="mt-2 mx-5">
+      <select #optSort class="form-control">
+        <option>Trier par :</option>
+        <option>ordre alphabétique</option>
+        <option>poids croissant</option>
+      </select>
+    </div>
+
     <div class="text-center">
       <button class="btn btn-info mt-2" 
-      (click)="fruitService.searchByLetter(optLetter.value);"
+      (click)="fruitService.Filter(optLetter.value, optWeight.value, optSort.value);"
       type="button">Enregistrer</button><br>
       <button class="btn btn-secondary mt-2" (click)="fruitService.refresh();"
       type="button">Reset</button>
